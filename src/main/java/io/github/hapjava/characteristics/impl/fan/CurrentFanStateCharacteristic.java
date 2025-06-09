@@ -21,6 +21,7 @@ public class CurrentFanStateCharacteristic extends EnumCharacteristic<CurrentFan
       Runnable unsubscriber) {
     super(
         "000000AF-0000-1000-8000-0026BB765291",
+        "uint8",
         "Current Fan State",
         CurrentFanStateEnum.values(),
         Optional.of(getter),

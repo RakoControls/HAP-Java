@@ -28,6 +28,7 @@ public abstract class IntegerCharacteristic extends BaseCharacteristic<Integer> 
    *
    * @param type a string containing a UUID that indicates the type of characteristic. Apple defines
    *     a set of these, however implementors can create their own as well.
+   * @param format
    * @param description a description of the characteristic to be passed to the consuming device.
    * @param minValue the minimum supported value.
    * @param maxValue the maximum supported value
@@ -39,6 +40,7 @@ public abstract class IntegerCharacteristic extends BaseCharacteristic<Integer> 
    */
   public IntegerCharacteristic(
       String type,
+      String format,
       String description,
       int minValue,
       int maxValue,
@@ -48,12 +50,41 @@ public abstract class IntegerCharacteristic extends BaseCharacteristic<Integer> 
       Optional<Consumer<HomekitCharacteristicChangeCallback>> subscriber,
       Optional<Runnable> unsubscriber) {
     super(
-        type, "int", description, getter.isPresent(), setter.isPresent(), subscriber, unsubscriber);
+        type,
+        format,
+        description,
+        getter.isPresent(),
+        setter.isPresent(),
+        subscriber,
+        unsubscriber);
     this.minValue = minValue;
     this.maxValue = maxValue;
     this.unit = unit;
     this.getter = getter;
     this.setter = setter;
+  }
+
+  public IntegerCharacteristic(
+      String type,
+      String description,
+      int minValue,
+      int maxValue,
+      String unit,
+      Optional<Supplier<CompletableFuture<Integer>>> getter,
+      Optional<ExceptionalConsumer<Integer>> setter,
+      Optional<Consumer<HomekitCharacteristicChangeCallback>> subscriber,
+      Optional<Runnable> unsubscriber) {
+    this(
+        type,
+        "int",
+        description,
+        minValue,
+        maxValue,
+        unit,
+        getter,
+        setter,
+        subscriber,
+        unsubscriber);
   }
 
   public IntegerCharacteristic(
@@ -82,7 +113,6 @@ public abstract class IntegerCharacteristic extends BaseCharacteristic<Integer> 
     this.setter = setter;
   }
 
-  /** {@inheritDoc} */
   @Override
   protected CompletableFuture<JsonObjectBuilder> makeBuilder(int iid) {
     return super.makeBuilder(iid)
@@ -108,13 +138,11 @@ public abstract class IntegerCharacteristic extends BaseCharacteristic<Integer> 
     }
   }
 
-  /** {@inheritDoc} */
   @Override
   public Integer getDefault() {
     return minValue;
   }
 
-  /** {@inheritDoc} */
   @Override
   protected Integer convert(JsonValue jsonValue) {
     return ((JsonNumber) jsonValue).intValue();

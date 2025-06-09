@@ -33,6 +33,7 @@ public abstract class FloatCharacteristic extends BaseCharacteristic<Double> {
    *
    * @param type a string containing a UUID that indicates the type of characteristic. Apple defines
    *     a set of these, however implementors can create their own as well.
+   * @param format
    * @param description a description of the characteristic to be passed to the consuming device.
    * @param minValue the minimum supported value.
    * @param maxValue the maximum supported value
@@ -45,6 +46,7 @@ public abstract class FloatCharacteristic extends BaseCharacteristic<Double> {
    */
   public FloatCharacteristic(
       String type,
+      String format,
       String description,
       double minValue,
       double maxValue,
@@ -56,7 +58,7 @@ public abstract class FloatCharacteristic extends BaseCharacteristic<Double> {
       Optional<Runnable> unsubscriber) {
     super(
         type,
-        "float",
+        format,
         description,
         getter.isPresent(),
         setter.isPresent(),
@@ -68,6 +70,31 @@ public abstract class FloatCharacteristic extends BaseCharacteristic<Double> {
     this.getter = getter;
     this.setter = setter;
     this.minStep = minStep;
+  }
+
+  public FloatCharacteristic(
+      String type,
+      String description,
+      double minValue,
+      double maxValue,
+      double minStep,
+      String unit,
+      Optional<Supplier<CompletableFuture<Double>>> getter,
+      Optional<ExceptionalConsumer<Double>> setter,
+      Optional<Consumer<HomekitCharacteristicChangeCallback>> subscriber,
+      Optional<Runnable> unsubscriber) {
+    this(
+        type,
+        "float",
+        description,
+        minValue,
+        maxValue,
+        minStep,
+        unit,
+        getter,
+        setter,
+        subscriber,
+        unsubscriber);
   }
 
   /** {@inheritDoc} */
@@ -130,7 +157,9 @@ public abstract class FloatCharacteristic extends BaseCharacteristic<Double> {
 
   @Override
   public void setValue(Double value) throws Exception {
-    if (setter.isPresent()) setter.get().accept(value);
+    if (setter.isPresent()) {
+      setter.get().accept(value);
+    }
   }
 
   /** {@inheritDoc} */

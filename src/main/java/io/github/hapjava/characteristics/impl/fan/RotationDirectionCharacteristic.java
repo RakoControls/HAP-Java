@@ -20,6 +20,7 @@ public class RotationDirectionCharacteristic extends EnumCharacteristic<Rotation
       Runnable unsubscriber) {
     super(
         "00000028-0000-1000-8000-0026BB765291",
+        "uint8",
         "Rotation direction",
         RotationDirectionEnum.values(),
         Optional.of(getter),

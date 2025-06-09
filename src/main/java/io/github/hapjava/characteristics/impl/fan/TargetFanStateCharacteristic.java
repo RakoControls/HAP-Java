@@ -20,6 +20,7 @@ public class TargetFanStateCharacteristic extends EnumCharacteristic<TargetFanSt
       Runnable unsubscriber) {
     super(
         "000000BF-0000-1000-8000-0026BB765291",
+        "uint8",
         "Target Fan State",
         TargetFanStateEnum.values(),
         Optional.of(getter),

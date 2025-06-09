@@ -9,6 +9,7 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 /** This characteristic describes the current position of accessories. */
+// public class CurrentPositionCharacteristic extends IntegerCharacteristic
 public class CurrentPositionCharacteristic extends IntegerCharacteristic
     implements EventableCharacteristic {
 
@@ -18,6 +19,7 @@ public class CurrentPositionCharacteristic extends IntegerCharacteristic
       Runnable unsubscriber) {
     super(
         "0000006D-0000-1000-8000-0026BB765291",
+        "uint8",
         "current position",
         0,
         100,

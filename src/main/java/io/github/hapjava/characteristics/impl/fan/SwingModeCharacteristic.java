@@ -20,6 +20,7 @@ public class SwingModeCharacteristic extends EnumCharacteristic<SwingModeEnum>
       Runnable unsubscriber) {
     super(
         "000000B6-0000-1000-8000-0026BB765291",
+        "uint8",
         "Swing Mode",
         SwingModeEnum.values(),
         Optional.of(getter),

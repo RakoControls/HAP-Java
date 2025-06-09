@@ -20,6 +20,7 @@ public class LockPhysicalControlsCharacteristic extends EnumCharacteristic<LockP
       Runnable unsubscriber) {
     super(
         "000000A7-0000-1000-8000-0026BB765291",
+        "uint8",
         "Physical Locks",
         LockPhysicalControlsEnum.values(),
         Optional.of(getter),
