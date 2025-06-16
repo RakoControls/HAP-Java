@@ -12,8 +12,9 @@ import java.util.function.Supplier;
 /** This characteristic describes color temperature in mireds */
 public class ColorTemperatureCharacteristic extends IntegerCharacteristic
     implements EventableCharacteristic {
-  public static final int DEFAULT_MIN_VALUE = 100;
-  public static final int DEFAULT_MAX_VALUE = 555;
+
+  public static final int DEFAULT_MIN_VALUE = 154; // 6500 kelvin
+  public static final int DEFAULT_MAX_VALUE = 555; // 1800 kelvin
 
   public ColorTemperatureCharacteristic(
       int minValue,
