@@ -5,6 +5,11 @@ import io.github.hapjava.characteristics.Characteristic;
 import io.github.hapjava.server.impl.HomekitRegistry;
 import io.github.hapjava.server.impl.http.HttpResponse;
 import io.github.hapjava.services.Service;
+import jakarta.json.Json;
+import jakarta.json.JsonArrayBuilder;
+import jakarta.json.JsonObject;
+import jakarta.json.JsonObjectBuilder;
+import jakarta.json.JsonWriter;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,11 +19,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
-import javax.json.Json;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
-import javax.json.JsonWriter;
 
 public class AccessoryController {
 

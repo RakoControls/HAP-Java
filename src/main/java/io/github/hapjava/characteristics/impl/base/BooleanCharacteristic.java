@@ -2,13 +2,13 @@ package io.github.hapjava.characteristics.impl.base;
 
 import io.github.hapjava.characteristics.ExceptionalConsumer;
 import io.github.hapjava.characteristics.HomekitCharacteristicChangeCallback;
+import jakarta.json.JsonNumber;
+import jakarta.json.JsonValue;
+import jakarta.json.JsonValue.ValueType;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
-import javax.json.JsonNumber;
-import javax.json.JsonValue;
-import javax.json.JsonValue.ValueType;
 
 /**
  * Characteristic that exposes a Boolean value.

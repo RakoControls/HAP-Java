@@ -8,10 +8,10 @@ import io.github.hapjava.server.impl.http.HomekitClientConnection;
 import io.github.hapjava.server.impl.http.HttpRequest;
 import io.github.hapjava.server.impl.http.HttpResponse;
 import io.github.hapjava.server.impl.responses.NotFoundResponse;
+import jakarta.json.*;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
-import javax.json.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

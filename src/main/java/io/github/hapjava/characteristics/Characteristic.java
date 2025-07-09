@@ -1,9 +1,9 @@
 package io.github.hapjava.characteristics;
 
+import jakarta.json.JsonObject;
+import jakarta.json.JsonObjectBuilder;
+import jakarta.json.JsonValue;
 import java.util.concurrent.CompletableFuture;
-import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
-import javax.json.JsonValue;
 
 /**
  * Interface for the characteristics provided by a Service.

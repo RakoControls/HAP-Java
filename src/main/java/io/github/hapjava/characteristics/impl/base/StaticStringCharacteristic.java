@@ -1,13 +1,13 @@
 package io.github.hapjava.characteristics.impl.base;
 
 import io.github.hapjava.characteristics.HomekitCharacteristicChangeCallback;
+import jakarta.json.JsonObjectBuilder;
+import jakarta.json.JsonString;
+import jakarta.json.JsonValue;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
-import javax.json.JsonObjectBuilder;
-import javax.json.JsonString;
-import javax.json.JsonValue;
 
 /**
  * A characteristic that provides an immutable String value.
